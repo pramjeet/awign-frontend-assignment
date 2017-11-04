@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Dashboard from "../Dashboard";
+import HomePage from "../home-page";
+import InternsPage from "../interns-page";
 class App extends Component {
   render() {
     return (
       <main>
         <Switch>
-          <Route path="/dashboard" component={Dashboard} />
-          <Redirect to="/dashboard" />
+          <Route path="/" exact component={HomePage} />
+          <Route path="/interns" component={InternsPage} />
+          <Redirect to="/" />
         </Switch>
       </main>
     );

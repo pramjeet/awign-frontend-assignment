@@ -4,6 +4,24 @@ import { getAllCounts } from "../../selectors";
 import { fetchAll } from "../../actions";
 import Dashboard from "../../components/dashboard";
 
+class Home extends Component {
+  componentDidMount() {
+    this.props.fetchAll();
+  }
+  render() {
+    const { internsCount, tasksCount, projectsCount } = this.props.counts;
+    return (
+      <div>
+        <Dashboard
+          noOfInterns={internsCount}
+          noOfActiveTasks={tasksCount}
+          noOfActiveProjects={projectsCount}
+        />
+      </div>
+    );
+  }
+}
+
 const mapStateToProps = state => {
   return {
     counts: getAllCounts(state)
@@ -15,20 +33,5 @@ const mapDispatchToProps = dispatch => {
     fetchAll: () => dispatch(fetchAll())
   };
 };
-
-class Home extends Component {
-  componentDidMount() {
-    this.props.fetchAll();
-  }
-  render() {
-    return (
-      <Dashboard
-        noOfInterns={this.props.counts.internsCount}
-        noOfActiveTasks={523}
-        noOfActiveProjects={84}
-      />
-    );
-  }
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

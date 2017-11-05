@@ -1,27 +1,27 @@
 import * as types from "../actions/action-types";
 import initialState from "./initial-state";
 
-export default function(state = initialState.internsState, action) {
+export default function(state = initialState.tasksState, action) {
   switch (action.type) {
-    case types.SET_INTERNS_COUNT:
+    case types.SET_TASKS_COUNT:
       return {
         ...state,
         count: action.payload.count
       };
-    case types.SET_INTERNS:
+    case types.SET_TASKS:
       return {
         ...state,
-        interns: action.payload.interns
+        tasks: action.payload.tasks
       };
-    case types.IS_FETCHING_INTERNS:
+    case types.IS_FETCHING_TASKS:
       return {
         ...state,
-        isFetchingInterns: action.payload.isFetchingInterns
+        isFetchingTasks: action.payload.isFetchingTasks
       };
-    case types.FETCHING_INTERNS_ERROR_MSG:
+    case types.FETCHING_TASKS_ERROR_MSG:
       return {
         ...state,
-        fetchingInternsErrorMsg: action.payload.msg
+        fetchingTasksErrorMsg: action.payload.msg
       };
 
     default:

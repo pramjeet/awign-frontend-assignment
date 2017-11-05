@@ -4,25 +4,13 @@ import DashboardItem from "./dashboard-item";
 const Dashboard = ({ noOfInterns, noOfActiveTasks, noOfActiveProjects }) => (
   <div className="container" style={{ width: 400 }}>
     <Link to="/interns">
-      <DashboardItem
-        count={noOfInterns}
-        title={"Interns"}
-        smallText={"working on"}
-      />
+      <DashboardItem count={noOfInterns} title={"Interns"} />
     </Link>
-    <Link to="/interns">
-      <DashboardItem
-        count={noOfActiveTasks}
-        title={"Tasks"}
-        smallText={"active"}
-      />
+    <Link to="/tasks">
+      <DashboardItem count={noOfActiveTasks} title={"Tasks"} />
     </Link>
-    <Link to="/interns">
-      <DashboardItem
-        count={noOfActiveProjects}
-        title={"Projects"}
-        smallText={"going on"}
-      />
+    <Link to="/projects">
+      <DashboardItem count={noOfActiveProjects} title={"Projects"} />
     </Link>
   </div>
 );

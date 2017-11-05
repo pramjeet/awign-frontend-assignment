@@ -4,6 +4,7 @@ import * as types from "./action-types";
 export function fetchInterns() {
   return dispatch => {
     dispatch(isFatchingInterns(true));
+    dispatch(setFatchingInternsErrorMsg(""));
     axios
       .get("http://demo9826255.mockable.io/interns")
       .then(res => {
@@ -32,10 +33,10 @@ export function setInterns(interns) {
   };
 }
 
-export function isFatchingInterns(isFatchingInterns) {
+export function isFatchingInterns(isFetchingInterns) {
   return {
     type: types.IS_FETCHING_INTERNS,
-    payload: { isFatchingInterns }
+    payload: { isFetchingInterns }
   };
 }
 

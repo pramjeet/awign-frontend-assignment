@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const InternsTable = ({ interns = [] }) => (
+const InternsTable = ({ projects = [] }) => (
   <div className="table-responsive">
     <table className="table table-bordered">
       <thead>
@@ -9,19 +9,17 @@ const InternsTable = ({ interns = [] }) => (
           <th>ID</th>
           <th>Name</th>
           <th>No. of tasks</th>
-          <th>No. of projects</th>
           <th>Options</th>
         </tr>
       </thead>
       <tbody>
-        {interns.map(intern => (
-          <tr key={intern.id}>
-            <td>{intern.id}</td>
-            <td>{intern.name}</td>
-            <td>{intern.tasksCount}</td>
-            <td>{intern.projectsCount}</td>
+        {projects.map(project => (
+          <tr key={project.id}>
+            <td>{project.id}</td>
+            <td>{project.name}</td>
+            <td>{project.tasksCount}</td>
             <td>
-              <Link to={"/" + intern.id}>Details</Link>
+              <Link to={"/" + project.id}>Details</Link>
             </td>
           </tr>
         ))}
